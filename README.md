@@ -26,26 +26,35 @@
 |                       | `address`           | 用户默认收货地址 |                        | 初始化为空，可修改                                      |
 |                       | `created_at`        | 创建时间     |                        | 自动生成                                           |
 |                       | `updated_at`        | 更新时间     |                        | 自动生成                                           |
-| `product_assets`      | `id`                | 主键       | PK                     | 单品资源唯一标识                                       |
-|                       | `type`              | 类型       |                        | 例如: 雪板/眼镜/衣服/鞋子/固定器                            |
-|                       | `type_id`           | 类型编号     |                        | 固定编号: SB-001, G-001 等                          |
-|                       | `type_name`         | 类型名称     |                        | 便于显示                                           |
-|                       | `name`              | 商品名称     |                        | 用户理解的名称                                        |
-|                       | `desc`              | 商品描述     |                        | 几句话介绍                                          |
-|                       | `size`              | 尺寸       |                        | 例如 "140,160,180" 或 0（无尺寸）                      |
-|                       | `texture_urls`      | JSON 数组  |                        | 预设纹理路径，例如 {"SB-001": ["front.png","back.png"]} |
-|                       | `created_at`        | 创建时间     |                        | 自动生成                                           |
-|                       | `updated_at`        | 更新时间     |                        | 自动生成                                           |
-| `products`            | `id`                | 主键       | PK                     | 套装或单品唯一标识                                      |
-|                       | `name`              | 产品名称     |                        | 前端显示名称                                         |
-|                       | `type`              | 类型       |                        | 1=单品, 2=套装                                     |
-|                       | `status`            | 上架/下架    |                        | 布尔值                                            |
-|                       | `created_at`        | 创建时间     |                        | 自动生成                                           |
-|                       | `updated_at`        | 更新时间     |                        | 自动生成                                           |
-| `product_asset_links` | `id`                | 主键       | PK                     | N–M 关联表唯一标识                                    |
-|                       | `product_id`        | 套装 ID    | FK → products.id       | 套装关联单品                                         |
-|                       | `asset_id`          | 单品 ID    | FK → product_assets.id | 套装包含的单品                                        |
-|                       | `quantity`          | 套装中单品数量  |                        | 默认为 1                                          |
+| `product_assets`      | `id`           | 主键      | PK                     | 单品资源唯一标识                                       |
+|                       | `type`         | 类型      |                        | 模型类别，例如: 雪板/眼镜/衣服/鞋子/固定器                       |
+|                       | `type_id`      | 类型编号    |                        | 固定编号: SB-001, G-001 等                          |
+|                       | `type_name`    | 类型名称    |                        | 便于显示                                           |
+|                       | `texture_urls` | JSON 数组 |                        | 预设纹理路径，例如 {"SB-001": ["front.png","back.png"]} |
+|                       | `created_at`   | 创建时间    | 自动生成                   |                                                |
+|                       | `updated_at`   | 更新时间    | 自动生成                   |                                                |
+| `products`            | `id`           | 主键      | PK                     | 套装或单品唯一标识                                      |
+|                       | `name`         | 产品名称    |                        | 前端显示名称                                         |
+|                       | `type`         | 类型      |                        | 1=单品, 2=套装                                     |
+|                       | `status`       | 上架/下架   | 布尔值                    |                                                |
+|                       | `price`        | 价格      |                        | 产品价格                                           |
+|                       | `p_desc`       | 产品描述    | TEXT                   | 几句话介绍                                          |
+|                       | `p_size`       | 尺寸      | TEXT                   | 例如 "140,160,180"，产品独立可修改                       |
+|                       | `p_finish`     | 材质/表面工艺 | TEXT                   | 例如 木芯板、玻璃纤维                                    |
+|                       | `p_flex`       | 弹性/硬度   | TEXT                   | 例如 soft, regular, stiff                        |
+|                       | `p_textures`   | 纹理      | JSON                   | 产品可选纹理或默认纹理                                    |
+|                       | `created_at`   | 创建时间    | 自动生成                   |                                                |
+|                       | `updated_at`   | 更新时间    | 自动生成                   |                                                |
+| `product_asset_links` | `id`           | 主键      | PK                     | N–M 关联表唯一标识                                    |
+|                       | `product_id`   | 产品 ID   | FK → products.id       | 套装或单品关联资源                                      |
+|                       | `asset_id`     | 资源 ID   | FK → product_assets.id | 套装包含的单品或单品绑定的资源                                |
+|                       | `quantity`     | 套装中单品数量 |                        | 默认为 1                                          |
+| `customisations`      | `id`           | 主键      | PK                     | 用户定制唯一标识                                       |
+|                       | `user_id`      | 用户 ID   | FK → users.id          | 对应用户                                           |
+|                       | `product_id`   | 产品 ID   | FK → products.id       | 用户定制的套装或单品                                     |
+|                       | `custom_data`  | 用户选择配置  | JSON                   | 存储用户选择的尺寸/纹理/材质等                               |
+|                       | `created_at`   | 创建时间    | 自动生成                   |                                                |
+
 | `customisations`      | `id`                | 主键       | PK                     | 用户自定义配置唯一标识                                    |
 |                       | `user_id`           | 用户 ID    | FK → users.id          | 对应用户                                           |
 |                       | `product_id`        | 产品 ID    | FK → products.id       | 用户定制的套装或单品                                     |
