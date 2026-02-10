@@ -49,11 +49,6 @@
 |                       | `product_id`   | 产品 ID   | FK → products.id       | 套装或单品关联资源                                      |
 |                       | `asset_id`     | 资源 ID   | FK → product_assets.id | 套装包含的单品或单品绑定的资源                                |
 |                       | `quantity`     | 套装中单品数量 |                        | 默认为 1                                          |
-| `customisations`      | `id`           | 主键      | PK                     | 用户定制唯一标识                                       |
-|                       | `user_id`      | 用户 ID   | FK → users.id          | 对应用户                                           |
-|                       | `product_id`   | 产品 ID   | FK → products.id       | 用户定制的套装或单品                                     |
-|                       | `custom_data`  | 用户选择配置  | JSON                   | 存储用户选择的尺寸/纹理/材质等                               |
-|                       | `created_at`   | 创建时间    | 自动生成                   |                                                |
 | `customisations`      | `id`                | 主键       | PK                     | 用户自定义配置唯一标识                                    |
 |                       | `user_id`           | 用户 ID    | FK → users.id          | 对应用户                                           |
 |                       | `product_id`        | 产品 ID    | FK → products.id       | 用户定制的套装或单品                                     |
