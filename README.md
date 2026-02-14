@@ -64,6 +64,7 @@
 |                       | `user_id`           | 用户 ID    | FK → users.id          | 对应用户                                           |
 |                       | `design_id`         | 定制 ID    | FK → customisations.id | 用户选择的定制配置                                      |
 |                       | `quantity`          | 数量       |                        | 默认为 1，用户可修改                                    |
+|                       | unit_price   | decimal(10,2) | 单价        |                           | 加入购物车时锁定价格 |
 |                       | `created_at`        | 创建时间     |                        | 自动生成                                           |
 |                       | `updated_at`        | 更新时间     |                        | 自动生成                                           |
 | `orders`              | `id`                | 主键       | PK                     | 订单唯一标识                                         |
