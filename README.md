@@ -51,10 +51,15 @@
 |                       | `asset_id`     | 资源 ID   | FK → product_assets.id | 套装包含的单品或单品绑定的资源                                |
 |                       | `quantity`     | 套装中单品数量 |                        | 默认为 1                                          |
 | `customisations`      | `id`                | 主键       | PK                     | 用户自定义配置唯一标识                                    |
-|                       | `user_id`           | 用户 ID    | FK → users.id          | 对应用户                                           |
-|                       | `product_id`        | 产品 ID    | FK → products.id       | 用户定制的套装或单品                                     |
-|                       | `custom_data`       | JSON     |                        | 存储用户选择的尺寸/纹理等信息                                |
-|                       | `created_at`        | 创建时间     |                        | 自动生成                                           |
+|                       || id           | bigint         | 主键             | PK                       | 自增唯一标识 |
+|                       || user_id      | bigint         | 用户 ID          |                          | 可改为 FK → users.id |
+|                       || product_id   | bigint         | 产品 ID          | FK → products.id         | 对应用户定制的产品 |
+|                       || p_size       | varchar(50)    | 尺寸             |                          | 例如 160 |
+|                       || p_finish     | varchar(50)    | 板面工艺         |                          | 例如 glossy |
+|                       || p_flex       | varchar(50)    | 软硬度           |                          | 例如 soft |
+|                       || p_textures   | json           | 纹理数据         |                          | 可存多个纹理 |
+|                       || created_at   | timestamp      | 创建时间         | auto_now_add             | 自动生成 |
+|                       || updated_at   | timestamp      | 更新时间         | auto_now                 | 自动更新 |
 | `cart`                | `id`                | 主键       | PK                     | 购物车项唯一标识                                       |
 |                       | `user_id`           | 用户 ID    | FK → users.id          | 对应用户                                           |
 |                       | `design_id`         | 定制 ID    | FK → customisations.id | 用户选择的定制配置                                      |
