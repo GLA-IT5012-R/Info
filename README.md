@@ -40,8 +40,9 @@
 |                       | `price`        | 价格      |                        | 产品价格                                           |
 |                       | `p_desc`       | 产品描述    | TEXT                   | 几句话介绍                                          |
 |                       | `p_size`       | 尺寸      | TEXT                   | 例如 "140,160,180"，产品独立可修改                       |
-|                       | `p_finish`     | 材质/表面工艺 | TEXT                   | 例如 木芯板、玻璃纤维                                    |
+|                       | `p_finish`     | 材质/表面工艺 | TEXT                   | 例如 metta,glossy                                    |
 |                       | `p_flex`       | 弹性/硬度   | TEXT                   | 例如 soft, regular, stiff                        |
+|                       | `p_text`     | 定制logo文字 | TEXT                   | 例如 "AAAAAA"                                    |
 |                       | `p_textures`   | 纹理      | JSON                   | 产品可选纹理或默认纹理                                    |
 |                       | `created_at`   | 创建时间    | 自动生成                   |                                                |
 |                       | `updated_at`   | 更新时间    | 自动生成                   |                                                |
