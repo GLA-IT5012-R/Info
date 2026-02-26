@@ -84,11 +84,7 @@
 |                       | `rating`            | 评分       |                        | 1-5 星                                          |
 |                       | `comment`           | 评论内容     |                        | 文本，不包含图片                                       |
 |                       | `created_at`        | 创建时间     |                        | 自动生成                                           |
-| `site_content`        | `id`                | 主键       | PK                     | 网站内容节点唯一标识                                     |
-|                       | `section_name`      | 内容板块     |                        | 如 Brand Story / Customer Service               |
-|                       | `content_json`      | JSON     |                        | 存储标题/段落/可展开状态等                                 |
-|                       | `created_at`        | 创建时间     |                        | 自动生成                                           |
-|                       | `updated_at`        | 更新时间     |                        | 自动生成                                           |
+
 
 # ER图绘画要求
 | 形状   | 代表含义       | 你的项目用法       |
