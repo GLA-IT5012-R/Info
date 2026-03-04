@@ -1,3 +1,15 @@
+核心实体列表（Entities Overview）
+| 实体名              | 表名                    | 说明       |
+| ---------------- | --------------------- | -------- |
+| UserProfile      | m_user_profiles       | 用户信息表    |
+| Product          | m_products            | 商品主表     |
+| ProductAsset     | m_product_assets      | 单品资源表    |
+| ProductAssetLink | m_product_asset_links | 套装与资源关联表 |
+| Customisation    | m_customisations      | 用户定制记录   |
+| Cart             | m_cart                | 购物车      |
+| Order            | m_orders              | 订单主表     |
+| OrderItem        | m_order_items         | 订单子表     |
+| Review           | m_reviews             | 商品评论表    |
 
 # 外键关系总结（1-N N-1 N-M）
 | 父表                    | 子表                    | 关系类型 | 说明                         |
